@@ -7,7 +7,17 @@ self.addEventListener('install', event => {
      // Creamos un cache
      console.log('SW: Instalando SW');
 
-     // self.skipWaiting();
+     const instalacion = new Promise( (resolve, reject) => {
+
+          setTimeout(() => {
+               console.log('SW: Instalaciones terminadas');
+               self.skipWaiting();
+               resolve();
+          }, 1000);
+
+     });  
+
+     event.waitUntil( instalacion );
 
 });
 
