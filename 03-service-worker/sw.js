@@ -35,15 +35,25 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
 
      // Aplicar estrategias del cache
-     console.log( 'SW:', event.request.url );
+     // console.log( 'SW:', event.request.url );
 
-     if ( event.request.url.includes('https://reqres.in/') ) {
+     // if ( event.request.url.includes('https://reqres.in/') ) {
 
-          const resp = new Response(`{ ok: false, mensaje: 'jajaja' }`);
+     //      const resp = new Response(`{ ok: false, mensaje: 'jajaja' }`);
 
-          event.respondWith( resp );
+     //      event.respondWith( resp );
 
-     }
+     // }
 
 
+});
+
+
+// SYNC: Recuperamos la conexión a internet
+self.addEventListener('sync', event => {
+
+     console.log('Tenemos conexión!');
+     console.log(event);
+     console.log(event.tag);
+     
 });
