@@ -8,6 +8,7 @@ self.addEventListener('install', e => {
           .then( cache => {
 
                cache.addAll([
+                    '/',
                     '/index.html',
                     '/css/style.css',
                     '/img/main.jpg',
@@ -18,4 +19,12 @@ self.addEventListener('install', e => {
 
 
      e.waitUntil( cacheProm );
+});
+
+
+
+self.addEventListener('fetch', e => {
+
+     // 1 - Cache Only
+     e.respondWith( caches.match( e.request ) );
 });
